@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div th:text="${name}">没启动时显示的文本</div>
+<div th:text="${name}+',是一个明星！！'"></div>
+
+<table>
+    <tr th:each="s,state:${list}">
+        <td th:text="${s}"></td>
+        <td th:text="${state.index}"></td>
+        <td th:text="${state.count}"></td>
+        <td th:text="${state.size}"></td>
+        <td th:text="${state.even}"></td>
+        <td th:text="${state.first}"></td>
+        <td th:text="${state.last}"></td>
+
+    </tr>
+</table>
+</body>
+</html>

@@ -5,6 +5,7 @@
     <title></title>
 </head>
 <body>
+<div th:include="head"></div>
 <div th:text="${name}">没启动时显示的文本</div>
 <div th:text="${name}+',是一个明星！！'"></div>
 
@@ -20,5 +21,23 @@
 
     </tr>
 </table>
+<div th:if="${age}>=18">演示if条件 --> 恭喜你成年了！</div>
+<div th:unless="${age}>=18">演示条件不成立-->你未成年</div>
+<div th:text="${age}>=18?'你成年了':'未成年'">演示布尔表达式</div>
+<div th:text="${session.addr}">演示session</div>
+<div th:include="footer"></div>
+<div th:text="${gname}">纯文本</div>
+<div th:utext="${gname}">解析样式</div>
+
+<a th:href="@{http://localhost:8080/list?category3Id={category3Id}(category3Id=${category3Id})}">点我查询三级分类关联的商品</a>
+<!--<div th:each="s:${map}">-->
+<!--    <div th:text="${s.key}"></div>-->
+<!--    <div th:text="${s.value}"></div>-->
+<!--</div>-->
+<!--取map法2-->
+<!--<div th:text="${mapName}"></div>-->
+<!--<div th:text="${mapAge}"></div>-->
+<!--法3-->
+<div th:text="${name}"></div>
 </body>
 </html>

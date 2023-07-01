@@ -1,42 +1,30 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<div th:include="head"></div>
-<div th:text="${name}">没启动时显示的文本</div>
-<div th:text="${name}+',是一个明星！！'"></div>
-
-<table>
-    <tr th:each="s,state:${list}">
-        <td th:text="${s}"></td>
-        <td th:text="${state.index}"></td>
-        <td th:text="${state.count}"></td>
-        <td th:text="${state.size}"></td>
-        <td th:text="${state.even}"></td>
-        <td th:text="${state.first}"></td>
-        <td th:text="${state.last}"></td>
-    </tr>
-</table>
-<div th:if="${age}>=18">演示if条件 --> 恭喜你成年了！</div>
-<div th:unless="${age}>=18">演示条件不成立-->你未成年</div>
-<div th:text="${age}>=18?'你成年了':'未成年'">演示布尔表达式</div>
-<div th:text="${session.addr}">演示session</div>
-<div th:include="footer"></div>
-<div th:text="${gname}">纯文本</div>
-<div th:utext="${gname}">解析样式</div>
-
-<a th:href="@{http://localhost:8080/list?category3Id={category3Id}(category3Id=${category3Id})}">点我查询三级分类关联的商品</a>
-<!--<div th:each="s:${map}">-->
-<!--    <div th:text="${s.key}"></div>-->
-<!--    <div th:text="${s.value}"></div>-->
-<!--</div>-->
-<!--取map法2-->
-<!--<div th:text="${mapName}"></div>-->
-<!--<div th:text="${mapAge}"></div>-->
-<!--法3-->
-<div th:text="${name}"></div>
+<div id="div_container">
+    <div id="div_fruit_list">
+        <p class="center f30">欢迎使用水果库存后台管理系统</p>
+        <table id="tbl_fruit">
+            <tr>
+                <th class="w20">名称</th>
+                <th class="w20">单价</th>
+                <th class="w20">库存</th>
+                <th>操作</th>
+            </tr>
+            <tr th:if="${#lists.isEmpty(session.fruitList)}">
+                <td colspan="4">对不起，库存为空！</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.fruitList)}" th:each="fruit : ${session.fruitList}">
+                <td th:text="${fruit.fname}">苹果</td>
+                <td th:text="${fruit.price}">5</td>
+                <td th:text="${fruit.fcount}">20</td>
+                <td><img src="imgs/del.jpg" class="delImg"/></td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

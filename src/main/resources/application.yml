@@ -2,4 +2,4 @@ server:
   port: 8080
 spring:
   thymeleaf:
-    cache: false  #\u7981\u7528\u7F13\u5B58\uFF0C\u5F00\u53D1\u7684\u65F6\u5019false\uFF0C\u90E8\u7F72true
+    cache: false  #生产环境开启缓存，测试环境不开启

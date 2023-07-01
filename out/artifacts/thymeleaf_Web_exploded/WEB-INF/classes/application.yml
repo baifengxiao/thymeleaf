@@ -1,0 +1,5 @@
+server:
+  port: 8080
+spring:
+  thymeleaf:
+    cache: false  #生产环境开启缓存，测试环境不开启

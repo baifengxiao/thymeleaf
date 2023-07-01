@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: rainbell
+Build-Jdk: Oracle OpenJDK version 1.8.0_201
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: cn.sc.love
+Main-Class: ${start-class}
+
